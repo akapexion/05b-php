@@ -20,20 +20,21 @@ include("../config/db_connection.php");
         <?php
         $select_query = "SELECT * FROM users";
         $result = mysqli_query($connection, $select_query);
-        // print_r($result);
+
         while($display = mysqli_fetch_array($result)){
         ?>
         <tr>
-            <td><?php echo $display['name'] ?></td>
-            <td><?php echo $display['message'] ?></td>
+            <td><?php echo $display['name']?></td>
+            <td><?php echo $display['message']?></td>
             <td>
-                <a href="">Edit</a>
+                <a href="update.php?ID=<?php echo $display['id']?>">Edit</a>
                 <a href="">Delete</a>
             </td>
         </tr>
         <?php
         }
         ?>
+        
 
 
     </table>
