@@ -8,6 +8,8 @@ if(isset($_POST['submitBtn'])){
     $insert_query = "INSERT INTO users(name, message) VALUES('$nameFieldValue', '$messageFieldValue')";
 
     $result = mysqli_query($connection, $insert_query);
+
+    header("location: read.php");
 }
 
 

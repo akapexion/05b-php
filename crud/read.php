@@ -1,5 +1,18 @@
 <?php
 include("../config/db_connection.php");
+
+
+if(isset($_GET['ID'])){
+    $delete_query = "DELETE FROM users WHERE id = $_GET[ID]";
+
+    $result = mysqli_query($connection, $delete_query);
+
+    header("location: read.php");
+}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +22,8 @@ include("../config/db_connection.php");
     <title>Fetch</title>
 </head>
 <body>
-
+    <br>
+    <a href="create.php">Add new User</a>
     <table border="1" cellspacing = "0" cellpadding = "5">
         <tr>
             <th>Name</th>
@@ -28,7 +42,7 @@ include("../config/db_connection.php");
             <td><?php echo $display['message']?></td>
             <td>
                 <a href="update.php?ID=<?php echo $display['id']?>">Edit</a>
-                <a href="">Delete</a>
+                <a href="?ID=<?php echo $display['id']?>">Delete</a>
             </td>
         </tr>
         <?php

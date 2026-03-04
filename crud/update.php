@@ -9,7 +9,7 @@ if(isset($_POST['submitBtn'])){
 
     $result = mysqli_query($connection, $update_query);
 
-    
+    header("location: read.php");
 }
 
 
